@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联通网页测试</title>
+    <style type="text/css">
+        #p1 {color: red;}
+        .policyText {color: blue;
+            text-decoration: none; /* 这一行去掉了下划线 */
+            cursor: default; /* 这行代码将光标设置为默认样式，通常是箭头 */}
+        ::placeholder {
+            color: grey;
+            opacity: 1;
+        }
+        .hidden {
+            display: none;
+        }
+        .policy-content {
+            background-color: white;
+            color: black;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            text-align: left;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .policy-title {
+            font-weight: bold;
+            font-size: 20px; /* Adjust the size as needed */
+            margin-bottom: 10px;
+            text-align: center; /* Centers the title */
+        }
+        .policy-content p {
+            margin: 0 0 10px 0; /* No indentation, with space between paragraphs */
+        }
+    </style>
+</head>
+<body>
+    <img src="C:/Users/defan/Desktop/前部图片.jpeg" alt="联通前部图像">
+    <p id="p1">*以下信息已加密保护，仅用于运营商使用</p>
+    <form method="post">
+        手机号：<input type="text" placeholder="请输入联系方式" maxlength="11"/><br/>
+        验证码：<input type="text" placeholder="请输入验证码"/><br/>
+        姓名：<input type="text" placeholder="请输入身份证名字"/><br/>
+        身份证号：<input type="text" placeholder="请输入身份证号码" maxlength="18"/><br/>
+        所在地区：<input type="text" placeholder="请输入验证码"/><br/>
+        详细地址：<input type="text" placeholder="请输入小区或村街名称"/><br/>
+        <input type="checkbox" name="privacyPolicy" value="agree" id="privacyPolicy"/>
+        <label for="privacyPolicy">我已阅读并同意<a href="javascript:void(0);" id="openPolicy" class="policyText">《中国联通用户隐私政策》</a>。</label><br/>
+    </form>
+    <!-- 隐私政策详细内容的容器 -->
+    <div id="policyContent" class="hidden">
+        <div class="overlay" onclick="hidePolicy()"></div>
+        <div class="policy-content">
+            <div class="policy-title">中国联通用户隐私政策</div>
+            <p>我们非常重视您的隐私和个人信息安全。</p>
+            <p>我们承诺遵守相关法律法规，保护用户个人信息不被泄露。</p>
+            <p>我们采取严格的安全措施，以确保您的信息得到有效保护。</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('openPolicy').onclick = function() {
+            document.getElementById('policyContent').style.display = 'block';
+        };
+        function hidePolicy() {
+            document.getElementById('policyContent').style.display = 'none';
+        }
+    </script>
+    <!-- 图片路径请根据实际情况修改，以下为示例路径 -->
+    <img src="C:/Users/defan/Desktop/尾部图片.jpeg" alt="联通尾部图像">
+</body>
+</html>
